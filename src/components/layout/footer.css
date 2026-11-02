@@ -1,0 +1,208 @@
+.site-footer {
+  overflow: hidden;
+  border-top: 1px solid var(--line);
+  background: #080808;
+}
+
+.site-footer .footer-chrome {
+  position: relative;
+  z-index: 2;
+  background: #080808;
+}
+
+.site-footer .footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.3fr 1fr;
+  gap: 40px;
+  padding: 48px 0 40px;
+}
+
+.site-footer .footer-copy {
+  margin: 22px 0;
+  max-width: 28ch;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #d2d2cc;
+}
+
+.site-footer .footer-coords {
+  display: block;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #b0b0aa;
+}
+
+.site-footer .footer-col .mono {
+  display: block;
+  margin-bottom: 20px;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #b0b0aa;
+}
+
+.site-footer .footer-col a,
+.site-footer .footer-col button {
+  display: block;
+  margin-bottom: 10px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #e4e4de;
+  font-size: 15px;
+  text-align: left;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.site-footer .footer-col a:hover,
+.site-footer .footer-col button:hover {
+  color: #fff;
+}
+
+.site-footer .footer-col a:focus-visible,
+.site-footer .footer-col button:focus-visible,
+.site-footer .footer-bottom a:focus-visible,
+.site-footer .footer-bottom button:focus-visible {
+  outline: 1px solid rgba(255, 255, 255, 0.35);
+  outline-offset: 4px;
+}
+
+.site-footer .footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 22px 0 28px;
+  border-top: 1px solid var(--line);
+  font-size: 13px;
+  color: #c2c2bc;
+  background: #080808;
+}
+
+.site-footer .footer-bottom button,
+.site-footer .footer-bottom a {
+  background: none;
+  padding: 0;
+  border: 0;
+  font-size: 13px;
+  color: inherit;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.site-footer .footer-bottom button:hover,
+.site-footer .footer-bottom a:hover {
+  color: #fff;
+}
+
+.site-footer .footer-banner {
+  position: relative;
+  z-index: 0;
+  height: clamp(260px, 30vw, 440px);
+  overflow: hidden;
+  background: #080808;
+  isolation: isolate;
+  animation: footerBannerIn 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes footerBannerIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.site-footer .footer-banner::before,
+.site-footer .footer-banner::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.site-footer .footer-banner::before {
+  top: 0;
+  height: 18%;
+  background: linear-gradient(180deg, #080808 0%, rgba(8, 8, 8, 0.55) 40%, transparent 100%);
+}
+
+.site-footer .footer-banner::after {
+  bottom: 0;
+  height: 14%;
+  background: linear-gradient(0deg, #080808 0%, transparent 100%);
+}
+
+.site-footer .footer-banner img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 42%;
+  transform-origin: 50% 50%;
+  animation: footerReach 28s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes footerReach {
+  0% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1.055);
+  }
+}
+
+@media (max-width: 1100px) {
+  .site-footer .footer-top {
+    gap: 25px;
+  }
+}
+
+@media (max-width: 800px) {
+  .site-footer .footer-top {
+    grid-template-columns: 1fr 1fr;
+    padding-top: 36px;
+    padding-bottom: 28px;
+    gap: 32px 24px;
+  }
+
+  .site-footer .footer-bottom {
+    flex-wrap: wrap;
+    gap: 12px 20px;
+  }
+
+  .site-footer .footer-banner {
+    height: clamp(200px, 52vw, 300px);
+  }
+
+  .site-footer .footer-banner img {
+    object-position: center 40%;
+  }
+}
+
+@media (max-width: 560px) {
+  .site-footer .footer-top {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-footer .footer-banner,
+  .site-footer .footer-banner img {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+html[data-motion="paused"] .site-footer .footer-banner,
+html[data-motion="paused"] .site-footer .footer-banner img {
+  animation-play-state: paused !important;
+}
